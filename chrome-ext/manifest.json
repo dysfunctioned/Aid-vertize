@@ -1,0 +1,10 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "name": "Aid-vertize",
+    "description": "Aid-vertize Beta/MVP browser extention",
+    "action": {
+        "default_popup": "dist/js/index.html",
+        "default_title": "Aid-vertize Extension"
+    }
+}
