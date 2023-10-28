@@ -51,7 +51,7 @@ function getHtmlPlugins(chunks) {
     return chunks.map(
         (chunk) =>
             new HTMLPlugin({
-                title: "React extension",
+                title: "Aid-vertize",
                 filename: `${chunk}.html`,
                 chunks: [chunk],
             })

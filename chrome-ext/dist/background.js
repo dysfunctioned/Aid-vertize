@@ -1,1 +1,1 @@
-chrome.runtime.onMessage.addListener(((o,e,n)=>{console.log(o),console.log(e),n("Front the background Script")}));
+chrome.runtime.onInstalled.addListener((()=>{console.log("Extension is installed")})),chrome.runtime.onMessage.addListener(((e,o,n)=>{console.log(e),console.log(o),n("Front the background Script")}));
