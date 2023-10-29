@@ -11,7 +11,7 @@ module.exports = {
         options: path.resolve('src/options/index.tsx'),
         background: path.resolve('src/background/background.ts'),
         contentScript: path.resolve('src/contentScript/contentScript.ts'),
-        newTab: path.resolve('src/tabs/index.tsx'),
+        newTab: path.resolve('src/newTab/index.tsx'),
     },
     module: {
         rules: [
@@ -42,7 +42,7 @@ module.exports = {
                 ],
             },
             {
-                type: 'assets/resource',
+                type: 'asset/resource',
                 test: /\.(png|jpg|jpeg|gif|woff|woff2|tff|eot|svg)$/,
             },
         ]
@@ -55,7 +55,11 @@ module.exports = {
             patterns: [{
                 from: path.resolve('src/static'),
                 to: path.resolve('dist')
-            }]
+            },
+            {
+                from: path.resolve('src/assets/Inter-Regular.woff2'),
+                to: path.resolve('dist')
+            },]
         }),
         ...getHtmlPlugins([
             'popup',
