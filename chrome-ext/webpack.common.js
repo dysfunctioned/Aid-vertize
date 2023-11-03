@@ -42,8 +42,8 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|ttf|eot)$/i,
                 type: 'asset/resource',
-                test: /\.(png|jpg|jpeg|gif|woff|woff2|tff|eot|svg)$/,
             },
         ]
     },
@@ -56,10 +56,7 @@ module.exports = {
                 from: path.resolve('src/static'),
                 to: path.resolve('dist')
             },
-            {
-                from: path.resolve('src/assets/Inter-Regular.woff2'),
-                to: path.resolve('dist')
-            },]
+            ]
         }),
         ...getHtmlPlugins([
             'popup',

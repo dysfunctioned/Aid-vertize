@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
 import './tabs.css'
 import Dashboard from './components/dashboard'
-import Navbar from './components/Navbar'
+import DashNav from './components/DashNav'
 import Backgrounds from './components/pages/Backgrounds'
 import Impact from './components/pages/Impact'
 import Widgets from './components/pages/Widgets'
+import { BottomNav } from './components/BottomNav'
 
 function NewTab() {
     const [dashPopup, setDashPopup] = useState(false);
 
-    const [display, setDisplay] = useState("Widgets");
+    const [display, setDisplay] = useState(null);
 
     useEffect(() => {
         console.log(display);
     }, [display]);
 
     return (
-        <>
-            <button onClick={() => setDashPopup(true)}>Open Dashboard</button>
+        <div className='new-tab-override'>
+            <BottomNav dashPopup={dashPopup} setDashPopup={setDashPopup} display={display} setDisplay={setDisplay} />
             <Dashboard trigger={dashPopup} setTrigger={setDashPopup}>
-                <Navbar dashPopup={dashPopup} setDashPopup={setDashPopup} display={display} setDisplay={setDisplay} />
+                <DashNav dashPopup={dashPopup} setDashPopup={setDashPopup} display={display} setDisplay={setDisplay} />
                 {display === 'Widgets' && <Widgets />}
                 {display === 'Backgrounds' && <Backgrounds />}
                 {display === 'Impact' && <Impact />}
             </Dashboard>
-        </>
+        </div>
     )
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./dashboard.css"
 import CloseIcon from '@mui/icons-material/Close'
 
-export default function Navbar(props) {
+export default function DashNav(props) {
     return (
         <nav className="nav">
             <a className="dashboard-text">Dashboard</a>
@@ -20,7 +20,10 @@ export default function Navbar(props) {
                     Impact
                 </li>
             </ul>
-            <button className="close-btn" onClick={() => props.setDashPopup(false)}>
+            <button className="close-btn" onClick={() => {
+                props.setDashPopup(false);
+                props.setDisplay(null);
+            }}>
                 <CloseIcon style={{ fontSize: "20px", color: "#606367" }} />
             </button>
         </nav>

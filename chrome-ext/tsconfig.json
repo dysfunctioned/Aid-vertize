@@ -5,18 +5,15 @@
         "target": "es6",
         "moduleResolution": "node",
         "esModuleInterop": true,
+        "baseUrl": "./",
     },
     "include": [
         "src/**/*.ts",
-        "src/**/*.tsx"
+        "src/**/*.tsx",
+        "src/assets",
+        "custom.d.ts"
     ],
     "exclude": [
         "node_modules"
     ],
-    "baseUrl": "./",
-    "paths": {
-        "@assets/*": [
-            "src/assets/*"
-        ]
-    },
 }
