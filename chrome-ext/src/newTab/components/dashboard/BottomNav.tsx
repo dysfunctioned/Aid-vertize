@@ -1,9 +1,9 @@
 import React from 'react'
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import WidgetsIcon from '../../assets/widgets.svg';
-import BackgroundsIcon from '../../assets/backgrounds.svg';
-import ImpactIcon from '../../assets/impact.svg';
+import WidgetsIcon from '../../../assets/widgets.svg';
+import BackgroundsIcon from '../../../assets/backgrounds.svg';
+import ImpactIcon from '../../../assets/impact.svg';
 
 export const BottomNav = (props) => {
 
@@ -13,7 +13,7 @@ export const BottomNav = (props) => {
       onChange={(event, newValue) => { props.setDisplay(newValue) }}
       showLabels={false}
       sx={{
-        bgcolor: (!props.dashPopup) ? 'rgba(217, 217, 217, 0.40)' : '#FFF',
+        bgcolor: (props.display == null) ? 'rgba(217, 217, 217, 0.40)' : '#FFF',
         width: 140,
         height: 41,
         flexShrink: 0,
@@ -41,7 +41,6 @@ export const BottomNav = (props) => {
           }
         }}
         onClick={() => {
-          props.setDashPopup(true);
           props.setDisplay("Widgets");
         }} />
 
@@ -60,7 +59,6 @@ export const BottomNav = (props) => {
           }
         }}
         onClick={() => {
-          props.setDashPopup(true);
           props.setDisplay("Backgrounds");
         }} />
 
@@ -79,7 +77,6 @@ export const BottomNav = (props) => {
           }
         }}
         onClick={() => {
-          props.setDashPopup(true);
           props.setDisplay("Impact");
         }} />
     </BottomNavigation>

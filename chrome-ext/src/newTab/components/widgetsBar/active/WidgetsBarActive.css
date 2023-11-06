@@ -1,0 +1,60 @@
+.widgets-box {
+    width: 440px;
+    height: 94%;
+    flex-shrink: 0;
+    background-color: #FFF;
+    border: 1px solid #EDEFEF;
+    border-radius: 10px;
+    position: fixed;
+    flex-direction: row;
+    left: 10px;
+    display: flex;
+}
+
+.widgets-nav {
+    float: left;
+    width: 40px;
+    height: 100%;
+    box-shadow: 0.5px 0px 0px 0px #C4C4C4;
+    text-align: center;
+}
+
+.widgets-bar-content {
+    float: right;
+    flex: 1;
+}
+
+.widgets-bar-header {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #EDEFEF;
+}
+
+.header-text {
+    padding: 20px;
+    padding-bottom: 17px;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
+.close-btn2 {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+}
+
+.launch-btn {
+    position: absolute;
+    top: 9px;
+    right: 39px;
+}
+
+.refresh-btn {
+    position: absolute;
+    top: 9px;
+    right: 70px;
+}

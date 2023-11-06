@@ -2,6 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+    font-family: 'Inter';
+    src: url('./Inter-Regular.woff2') format('woff2');
+}
+
 body {
     @apply h-full w-full;
     display: flex;
@@ -9,4 +14,5 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: 'Inter';
 }

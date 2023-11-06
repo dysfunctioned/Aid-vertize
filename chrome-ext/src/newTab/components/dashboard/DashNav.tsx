@@ -21,7 +21,6 @@ export default function DashNav(props) {
                 </li>
             </ul>
             <button className="close-btn" onClick={() => {
-                props.setDashPopup(false);
                 props.setDisplay(null);
             }}>
                 <CloseIcon style={{ fontSize: "20px", color: "#606367" }} />

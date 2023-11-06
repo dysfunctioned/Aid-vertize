@@ -1,0 +1,44 @@
+.history {
+    padding: 15px;
+}
+
+.history-list {
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.history-list-header {
+    padding-bottom: 13px;
+    color: #606367;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.26px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.website-icon {
+    width: 11px;
+    height: 11px;
+    margin-right: 10px;
+}
+
+.website-domain {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: #000;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.22px;
+}

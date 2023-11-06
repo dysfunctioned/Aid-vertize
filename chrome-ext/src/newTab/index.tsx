@@ -15,6 +15,8 @@ function init() {
         throw new Error("Can not find AppContainer");
     }
     const root = createRoot(appContainer)
+
+    // Render NewTab element
     root.render(<NewTab />);
 }
 
