@@ -31,6 +31,7 @@ export const BottomNav = (props) => {
           width: 19, height: 19, zIndex: 999,
           filter: (props.display != "Widgets") ? 'brightness(0)' : "",
           opacity: (props.display != "Widgets") ? '0.5' : "1",
+          transition: 'filter 0.3s, opacity 0.3s',
         }} />}
         sx={{ minWidth: 10, }}
         TouchRippleProps={{
@@ -38,17 +39,20 @@ export const BottomNav = (props) => {
             width: 25, height: 25, top: -3, left: 11,
             backgroundColor: (props.display == "Widgets") ? '#606367' : 'transparent',
             borderRadius: 5,
+            transition: 'background-color 0.3s',
           }
         }}
         onClick={() => {
           props.setDisplay("Widgets");
-        }} />
+        }}
+      />
 
       <BottomNavigationAction
         icon={<img src={BackgroundsIcon} style={{
           width: 19, height: 19, zIndex: 999,
           filter: (props.display != "Backgrounds") ? 'brightness(0)' : "",
           opacity: (props.display != "Backgrounds") ? '0.5' : "1",
+          transition: 'filter 0.3s, opacity 0.3s',
         }} />}
         sx={{ minWidth: 10, }}
         TouchRippleProps={{
@@ -56,6 +60,7 @@ export const BottomNav = (props) => {
             width: 25, height: 25, top: -3, left: 11,
             backgroundColor: (props.display == "Backgrounds") ? '#606367' : 'transparent',
             borderRadius: 5,
+            transition: 'background-color 0.3s',
           }
         }}
         onClick={() => {
@@ -67,6 +72,7 @@ export const BottomNav = (props) => {
           width: 19, height: 19, zIndex: 999,
           filter: (props.display != "Impact") ? 'brightness(0)' : "",
           opacity: (props.display != "Impact") ? '0.5' : "1",
+          transition: 'filter 0.3s, opacity 0.3s',
         }} />}
         sx={{ minWidth: 10, }}
         TouchRippleProps={{
@@ -74,6 +80,7 @@ export const BottomNav = (props) => {
             width: 25, height: 25, top: -3, left: 11,
             backgroundColor: (props.display == "Impact") ? '#606367' : 'transparent',
             borderRadius: 5,
+            transition: 'background-color 0.3s',
           }
         }}
         onClick={() => {
