@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import WidgetsNavActive from './WidgetsNavActive'
 import './WidgetsBarActive.css'
 import History from '../../../widgets/history/History'
