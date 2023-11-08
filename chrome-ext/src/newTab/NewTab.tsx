@@ -5,7 +5,7 @@ import DashNav from './components/dashboard/DashNav'
 import Backgrounds from './components/dashboard/dashPages/Backgrounds'
 import Impact from './components/dashboard/dashPages/Impact'
 import Widgets from './components/dashboard/dashPages/Widgets'
-import { BottomNav } from './components/dashboard/BottomNav'
+import BottomNav from './components/dashboard/BottomNav'
 import WidgetsBarActive from './components/widgetsBar/active/WidgetsBarActive'
 import WidgetsBarInactive from './components/widgetsBar/inactive/WidgetsBarInactive'
 
@@ -15,10 +15,6 @@ function NewTab() {
 
     // Determines the widgets tab (null if widgets bar is not active)
     const [widgetsDisplay, setWidgetsDisplay] = useState(null)
-
-    useEffect(() => {
-        console.log(widgetsDisplay);
-    }, [widgetsDisplay]);
 
     return (
         <div className='new-tab-override'>
@@ -36,7 +32,8 @@ function NewTab() {
             </Dashboard>
 
             {/* Widgets bar: set to active if widgetsDisplay is not null */}
-            {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
+            {(widgetsDisplay == null) ?
+                <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                 : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
         </div>
     )

@@ -5,8 +5,7 @@ import WidgetsIcon from '../../../assets/widgets.svg';
 import BackgroundsIcon from '../../../assets/backgrounds.svg';
 import ImpactIcon from '../../../assets/impact.svg';
 
-export const BottomNav = (props) => {
-
+export default function BottomNav(props) {
   return (
     <BottomNavigation className='bottom-nav'
       value={props.display}
