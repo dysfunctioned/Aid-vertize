@@ -18,7 +18,6 @@ export default function WidgetsBarInactive(props) {
             display: 'flex', flexDirection: 'column',
             background: 'rgba(217, 217, 217, 0.40)', borderRadius: '10px', opacity: 0.8,
             left: '13px', position: 'absolute',
-            transition: 'width 2s'
         }}>
             <ButtonGroup orientation='vertical' sx={{ flex: 1 }}>
 

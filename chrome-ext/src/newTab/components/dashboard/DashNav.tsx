@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./dashboard.css"
 import CloseIcon from '@mui/icons-material/Close'
 
