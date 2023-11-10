@@ -16,6 +16,25 @@ function NewTab() {
     // Determines the widgets tab (null if widgets bar is not active)
     const [widgetsDisplay, setWidgetsDisplay] = useState(null)
 
+    useEffect(() => {
+        const adElement = document.createElement('div');
+        adElement.className = 'adsbygoogle ad ads adsbox ad-placement ad-placeholder ad-badge';
+
+        adElement.style.width = '100px';
+        adElement.style.height = '100px';
+        adElement.style.position = 'absolute';
+
+        document.body.appendChild(adElement);
+
+        console.log('Ad element added to the body:', adElement);
+
+        if (window.getComputedStyle(adElement).display === 'none') {
+            console.log('Adblock is enabled');
+        } else {
+            console.log('Adblock is not enabled');
+        }
+    }, []);
+
     return (
         <div className='new-tab-override'>
             {/* Bottom navigation bar */}
