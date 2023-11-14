@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
+import clsx from "clsx";
 import { useFetchWeather } from "./weather.api";
 
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -38,19 +39,29 @@ const Weather = () => {
       console.log(isLoading, error, data, isFetching)
 
       return (
-        <div className="absolute top-24 right-8 p-4 w-[300px] h-auto rounded-lg bg-gray-400 text-white flex justify-between">
-            {
-                isLoading && <CircularProgress />
+        <div 
+            className={clsx(
+                "absolute top-24 right-8 p-4 w-[300px] h-[150px] rounded-lg bg-gray-400 text-white flex items-center",
+                isLoading ? "justify-center flex-col gap-y-3" : "justify-between"
+            )}
+        >
+            {isLoading &&
+                <>
+                    <CircularProgress />
+                    <p className="text-base">
+                        Fetching the weather for your region
+                    </p>
+                </>
             }
             {data && 
                 <>
-                    <div className="flex flex-col justify-center">
+                    <div className="flex flex-col justify-start">
                         <p className="text-base">
                             {data.current.condition.text}
                         </p>
                         <img src={`https:${data.current.condition.icon}`} alt="icon of current weather"/>
                     </div>
-                    <Divider orientation="vertical" flexItem />
+                    <Divider orientation="vertical" flexItem sx={{ borderBottomWidth: 5 }}/>
                     <div className="flex flex-col justify-start">
                         <p className="text-base font-bold">
                             {data.location.name}, {data.location.country}
@@ -64,6 +75,9 @@ const Weather = () => {
                         </p>
                     </div>
                 </>
+            }
+            {
+                !data && error && <p>There was an error fetching the data</p>
             }
         </div>
     )

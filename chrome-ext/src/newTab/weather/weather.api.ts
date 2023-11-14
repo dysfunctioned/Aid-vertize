@@ -7,9 +7,7 @@ export type Location = {
 
 export const fetchWeather = async (location: Location) => {
     const BASE_URL = 'http://api.weatherapi.com/v1/current.json'
-    const key = 'a6fa6ca11a194b1aae545434231011'
-    // || '';
-    console.log("fetch weather")
+    const key = process.env.REACT_APP_WEATHER_API || '';
     
     if(!key) throw new Error("No API key");
     if(!location.long || !location.lat) throw new Error("No coordinates provided");
@@ -19,7 +17,6 @@ export const fetchWeather = async (location: Location) => {
     try{
         const response = await fetch(url, body)
         const res = await response.json()
-        console.log(res)
         return res 
     } catch (e) {
         console.log("Error", e)
@@ -35,4 +32,3 @@ export const useFetchWeather = (location: Location) => {
         cacheTime: ((4 * 60) + 5) * (60 * 1000) // 4 hours and 5 minutes
     })
 }
-//?key=a6fa6ca11a194b1aae545434231011&q=toronto&aqi=no

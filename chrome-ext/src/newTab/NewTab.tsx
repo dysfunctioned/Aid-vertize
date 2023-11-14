@@ -12,7 +12,6 @@ import Weather from './weather/Weather'
 import {
     QueryClient,
     QueryClientProvider,
-    useQuery,
 } from 'react-query'
 
 function NewTab() {
