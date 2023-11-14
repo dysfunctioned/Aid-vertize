@@ -8,6 +8,12 @@ import Widgets from './components/dashboard/dashPages/Widgets'
 import { BottomNav } from './components/dashboard/BottomNav'
 import WidgetsBarActive from './components/widgetsBar/active/WidgetsBarActive'
 import WidgetsBarInactive from './components/widgetsBar/inactive/WidgetsBarInactive'
+import Weather from './weather/Weather'
+import {
+    QueryClient,
+    QueryClientProvider,
+    useQuery,
+} from 'react-query'
 
 function NewTab() {
     // Determines the dashboard tab (null if dashboard is closed)
@@ -16,29 +22,33 @@ function NewTab() {
     // Determines the widgets tab (null if widgets bar is not active)
     const [widgetsDisplay, setWidgetsDisplay] = useState(null)
 
+    const queryClient = new QueryClient()
+
     useEffect(() => {
         console.log(widgetsDisplay);
     }, [widgetsDisplay]);
 
     return (
-        <div className='new-tab-override'>
-            {/* Bottom navigation bar */}
-            <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />
+        <QueryClientProvider client={queryClient}>
+            <div className='new-tab-override'>
+                {/* Bottom navigation bar */}
+                <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />
 
-            {/* Dashboard */}
-            <Dashboard display={dashDisplay} setDisplay={setDashDisplay}>
-                {/* Dashboard navigation bar */}
-                <DashNav display={dashDisplay} setDisplay={setDashDisplay} />
-                {/* Display the dashboard tab */}
-                {dashDisplay === 'Widgets' && <Widgets />}
-                {dashDisplay === 'Backgrounds' && <Backgrounds />}
-                {dashDisplay === 'Impact' && <Impact />}
-            </Dashboard>
-
-            {/* Widgets bar: set to active if widgetsDisplay is not null */}
-            {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
-                : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
-        </div>
+                {/* Dashboard */}
+                <Dashboard display={dashDisplay} setDisplay={setDashDisplay}>
+                    {/* Dashboard navigation bar */}
+                    <DashNav display={dashDisplay} setDisplay={setDashDisplay} />
+                    {/* Display the dashboard tab */}
+                    {dashDisplay === 'Widgets' && <Widgets />}
+                    {dashDisplay === 'Backgrounds' && <Backgrounds />}
+                    {dashDisplay === 'Impact' && <Impact />}
+                </Dashboard>
+                <Weather/>
+                {/* Widgets bar: set to active if widgetsDisplay is not null */}
+                {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
+                    : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
+            </div>
+        </QueryClientProvider>
     )
 }
 
