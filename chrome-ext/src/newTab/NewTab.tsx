@@ -5,7 +5,7 @@ import DashNav from './components/dashboard/DashNav'
 import Backgrounds from './components/dashboard/dashPages/Backgrounds'
 import Impact from './components/dashboard/dashPages/Impact'
 import Widgets from './components/dashboard/dashPages/Widgets'
-import { BottomNav } from './components/dashboard/BottomNav'
+import BottomNav from './components/dashboard/BottomNav'
 import WidgetsBarActive from './components/widgetsBar/active/WidgetsBarActive'
 import WidgetsBarInactive from './components/widgetsBar/inactive/WidgetsBarInactive'
 import Weather from './weather/Weather'
@@ -24,15 +24,29 @@ function NewTab() {
     const queryClient = new QueryClient()
 
     useEffect(() => {
-        console.log(widgetsDisplay);
-    }, [widgetsDisplay]);
+        const adElement = document.createElement('div');
+        adElement.className = 'adsbygoogle ad ads adsbox ad-placement ad-placeholder ad-badge';
+
+        adElement.style.width = '100px';
+        adElement.style.height = '100px';
+        adElement.style.position = 'absolute';
+
+        document.body.appendChild(adElement);
+
+        console.log('Ad element added to the body:', adElement);
+
+        if (window.getComputedStyle(adElement).display === 'none') {
+            console.log('Adblock is enabled');
+        } else {
+            console.log('Adblock is not enabled');
+        }
+    }, []);
 
     return (
         <QueryClientProvider client={queryClient}>
             <div className='new-tab-override'>
                 {/* Bottom navigation bar */}
                 <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />
-
                 {/* Dashboard */}
                 <Dashboard display={dashDisplay} setDisplay={setDashDisplay}>
                     {/* Dashboard navigation bar */}

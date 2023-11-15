@@ -1,7 +1,6 @@
 import React from 'react'
 import './WidgetsBarActive.css'
 import CloseIcon from '@mui/icons-material/Close';
-import RefreshIcon from '@mui/icons-material/Refresh';
 import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function WidgetsHeader(props) {
@@ -13,13 +12,13 @@ export default function WidgetsHeader(props) {
                 <CloseIcon style={{ fontSize: "17px", color: "#D8D8D8" }} />
             </button>
 
-            <button className='launch-btn' onClick={() => { }}>
-                <LaunchIcon style={{ fontSize: "17px", color: "#D8D8D8" }} />
-            </button>
+            {(props.display == "History") ?
+                <button className='launch-btn' onClick={() => { chrome.tabs.create({ url: 'chrome://history' }); }}>
+                    <LaunchIcon style={{ fontSize: "17px", color: "#D8D8D8" }} />
+                </button>
+                : <></>
+            }
 
-            <button className='refresh-btn' onClick={() => { }}>
-                <RefreshIcon style={{ fontSize: "17px", color: "#D8D8D8" }} />
-            </button>
         </div>
     )
 }

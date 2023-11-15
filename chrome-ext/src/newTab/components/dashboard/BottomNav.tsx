@@ -1,84 +1,67 @@
 import React from 'react'
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import WidgetsIcon from '../../../assets/widgets.svg';
 import BackgroundsIcon from '../../../assets/backgrounds.svg';
 import ImpactIcon from '../../../assets/impact.svg';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import IconButton from '@mui/material/IconButton';
 
-export const BottomNav = (props) => {
+export default function BottomNav(props) {
+  const isActive = (page) => props.display === page;
 
   return (
-    <BottomNavigation className='bottom-nav'
-      value={props.display}
-      onChange={(event, newValue) => { props.setDisplay(newValue) }}
-      showLabels={false}
-      sx={{
-        bgcolor: (props.display == null) ? 'rgba(217, 217, 217, 0.40)' : '#FFF',
-        width: 140,
-        height: 41,
-        flexShrink: 0,
-        borderRadius: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        opacity: 0.8,
-        position: 'fixed',
-        alignSelf: 'flex-end',
-        marginBottom: '15px',
-      }}
-    >
-      <BottomNavigationAction
-        icon={<img src={WidgetsIcon} style={{
-          width: 19, height: 19, zIndex: 999,
-          filter: (props.display != "Widgets") ? 'brightness(0)' : "",
-          opacity: (props.display != "Widgets") ? '0.5' : "1",
-        }} />}
-        sx={{ minWidth: 10, }}
-        TouchRippleProps={{
-          style: {
-            width: 25, height: 25, top: -3, left: 11,
-            backgroundColor: (props.display == "Widgets") ? '#606367' : 'transparent',
-            borderRadius: 5,
-          }
-        }}
-        onClick={() => {
-          props.setDisplay("Widgets");
-        }} />
+    <div style={{
+      display: 'flex', flexDirection: 'column',
+      borderRadius: '10px', opacity: 0.8,
+      position: 'absolute', bottom: '13px',
+      backgroundColor: (props.display == null) ? 'rgba(217, 217, 217, 0.40)' : '#FFF',
+    }}>
+      <ButtonGroup sx={{ flex: 1 }}>
 
-      <BottomNavigationAction
-        icon={<img src={BackgroundsIcon} style={{
-          width: 19, height: 19, zIndex: 999,
-          filter: (props.display != "Backgrounds") ? 'brightness(0)' : "",
-          opacity: (props.display != "Backgrounds") ? '0.5' : "1",
-        }} />}
-        sx={{ minWidth: 10, }}
-        TouchRippleProps={{
-          style: {
-            width: 25, height: 25, top: -3, left: 11,
-            backgroundColor: (props.display == "Backgrounds") ? '#606367' : 'transparent',
-            borderRadius: 5,
-          }
-        }}
-        onClick={() => {
-          props.setDisplay("Backgrounds");
-        }} />
+        <IconButton
+          onClick={() => props.setDisplay("Widgets")}
+          sx={{
+            backgroundColor: isActive('Widgets') ? '#606367' : 'inherit',
+            '&:hover': { backgroundColor: isActive('Widgets') ? '#606367' : '' },
+            margin: '3px'
+          }}>
+          {<img src={WidgetsIcon} style={{
+            width: 19, height: 19, zIndex: 999,
+            filter: (props.display != "Widgets") ? 'brightness(0)' : "",
+            opacity: (props.display != "Widgets") ? '0.2' : "1",
+            transition: 'filter 0.3s, opacity 0.3s',
+          }} />}
+        </IconButton>
 
-      <BottomNavigationAction
-        icon={<img src={ImpactIcon} style={{
-          width: 19, height: 19, zIndex: 999,
-          filter: (props.display != "Impact") ? 'brightness(0)' : "",
-          opacity: (props.display != "Impact") ? '0.5' : "1",
-        }} />}
-        sx={{ minWidth: 10, }}
-        TouchRippleProps={{
-          style: {
-            width: 25, height: 25, top: -3, left: 11,
-            backgroundColor: (props.display == "Impact") ? '#606367' : 'transparent',
-            borderRadius: 5,
-          }
-        }}
-        onClick={() => {
-          props.setDisplay("Impact");
-        }} />
-    </BottomNavigation>
+        <IconButton
+          onClick={() => props.setDisplay("Backgrounds")}
+          sx={{
+            backgroundColor: isActive('Backgrounds') ? '#606367' : 'inherit',
+            '&:hover': { backgroundColor: isActive('Backgrounds') ? '#606367' : '' },
+            margin: '3px'
+          }}>
+          {<img src={BackgroundsIcon} style={{
+            width: 19, height: 19, zIndex: 999,
+            filter: (props.display != "Backgrounds") ? 'brightness(0)' : "",
+            opacity: (props.display != "Backgrounds") ? '0.2' : "1",
+            transition: 'filter 0.3s, opacity 0.3s',
+          }} />}
+        </IconButton>
+
+        <IconButton
+          onClick={() => props.setDisplay("Impact")}
+          sx={{
+            backgroundColor: isActive('Impact') ? '#606367' : 'inherit',
+            '&:hover': { backgroundColor: isActive('Impact') ? '#606367' : '' },
+            margin: '3px'
+          }}>
+          {<img src={ImpactIcon} style={{
+            width: 19, height: 19, zIndex: 999,
+            filter: (props.display != "Impact") ? 'brightness(0)' : "",
+            opacity: (props.display != "Impact") ? '0.2' : "1",
+            transition: 'filter 0.3s, opacity 0.3s',
+          }} />}
+        </IconButton>
+      </ButtonGroup>
+    </div>
   );
 }
