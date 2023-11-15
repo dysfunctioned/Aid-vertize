@@ -41,7 +41,7 @@ const Weather = () => {
       return (
         <div 
             className={clsx(
-                "absolute top-24 right-8 p-4 w-[300px] h-[150px] rounded-lg bg-gray-400 text-white flex items-center",
+                "absolute top-24 right-8 p-4 w-[300px] h-[150px] border-2 rounded-lg bg-white/25 text-gray flex items-center",
                 isLoading ? "justify-center flex-col gap-y-3" : "justify-between"
             )}
         >
