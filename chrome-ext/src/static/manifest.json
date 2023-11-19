@@ -3,10 +3,10 @@
     "name": "Aid-vertize",
     "description": "Aid-vertize Beta/MVP browser extention",
     "version": "1.0.0",
-    "action" : {
+    "action": {
         "default_popup": "popup.html",
         "default_title": "Aid-vertize",
-        "default_icon" : "icon.png"
+        "default_icon": "icon.png"
     },
     "chrome_url_overrides": {
         "newtab": "newTab.html"
@@ -19,9 +19,9 @@
         "history"
     ],
     "icons": {
-        "16" : "icon.png",
-        "48" : "icon.png",
-        "128" : "icon.png"
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
     },
     "options_page": "options.html",
     "background": {
@@ -29,8 +29,18 @@
     },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
-            "js": ["contentScript.js"]
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
         }
-    ]
+    ],
+    "content_security_policy": {
+        "script_src": [
+            "script-src 'self' https://pagead2.googlesyndication.com; object-src 'self';",
+            "script-src-elem 'self' https://pagead2.googlesyndication.com;"
+        ]
+    }
 }

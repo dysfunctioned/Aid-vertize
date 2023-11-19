@@ -23,24 +23,50 @@ function NewTab() {
 
     const queryClient = new QueryClient()
 
+    // useEffect(() => {
+    //     const adElement = document.createElement('div');
+    //     adElement.className = 'adsbygoogle ad ads adsbox ad-placement ad-placeholder ad-badge';
+
+    //     adElement.style.width = '100px';
+    //     adElement.style.height = '100px';
+    //     adElement.style.position = 'absolute';
+
+    //     document.body.appendChild(adElement);
+
+    //     console.log('Ad element added to the body:', adElement);
+
+    //     if (window.getComputedStyle(adElement).display === 'none') {
+    //         console.log('Adblock is enabled');
+    //     } else {
+    //         console.log('Adblock is not enabled');
+    //     }
+    // }, []);
+
+
     useEffect(() => {
-        const adElement = document.createElement('div');
-        adElement.className = 'adsbygoogle ad ads adsbox ad-placement ad-placeholder ad-badge';
+        // Create a script element for AdSense
+        const script = document.createElement('script');
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5021835449823390';
+        script.crossOrigin = 'anonymous';
 
-        adElement.style.width = '100px';
-        adElement.style.height = '100px';
-        adElement.style.position = 'absolute';
+        // Create an ins element for the AdSense ad
+        const adContainer = document.createElement('ins');
+        adContainer.className = 'adsbygoogle';
+        adContainer.style.display = 'block';
+        adContainer.setAttribute('data-ad-client', 'ca-pub-5021835449823390');
+        adContainer.setAttribute('data-ad-slot', '6495857670');
+        adContainer.setAttribute('data-ad-format', 'auto');
+        adContainer.setAttribute('data-full-width-responsive', 'true');
 
-        document.body.appendChild(adElement);
+        // Append the script and adContainer to the body
+        document.body.appendChild(script);
+        document.body.appendChild(adContainer);
 
-        console.log('Ad element added to the body:', adElement);
-
-        if (window.getComputedStyle(adElement).display === 'none') {
-            console.log('Adblock is enabled');
-        } else {
-            console.log('Adblock is not enabled');
-        }
+        // Push the ads to display
+        (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+        (window as any).adsbygoogle.push({});
     }, []);
+
 
     return (
         <QueryClientProvider client={queryClient}>
@@ -56,7 +82,7 @@ function NewTab() {
                     {dashDisplay === 'Backgrounds' && <Backgrounds />}
                     {dashDisplay === 'Impact' && <Impact />}
                 </Dashboard>
-                <Weather/>
+                {/* <Weather/> */}
                 {/* Widgets bar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                     : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
