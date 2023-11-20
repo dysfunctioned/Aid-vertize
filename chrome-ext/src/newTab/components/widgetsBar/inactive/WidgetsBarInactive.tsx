@@ -11,8 +11,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 
 export default function WidgetsBarInactive(props) {
-    const isActive = (widget) => props.display === widget;
-
     return (
         <div style={{
             display: 'flex', flexDirection: 'column',
@@ -22,33 +20,33 @@ export default function WidgetsBarInactive(props) {
             <ButtonGroup orientation='vertical' sx={{ flex: 1 }}>
 
                 <IconButton onClick={() => props.setDisplay("Calendar")}>
-                    <CalendarIcon sx={{ color: isActive('Calendar') ? '#FFFFFF' : '#BABCBE' }} />
+                    <CalendarIcon sx={{ color: '#00000033' }} />
                 </IconButton>
 
                 <IconButton onClick={() => props.setDisplay("Tasks")}>
-                    <ChecklistIcon sx={{ color: isActive('Tasks') ? '#FFFFFF' : '#BABCBE' }} />
+                    <ChecklistIcon sx={{ color: '#00000033' }} />
                 </IconButton>
 
                 <IconButton onClick={() => props.setDisplay("Notes")}>
-                    <StickyNoteIcon sx={{ color: isActive('Notes') ? '#FFFFFF' : '#BABCBE' }} />
+                    <StickyNoteIcon sx={{ color: '#00000033' }} />
                 </IconButton>
 
                 <IconButton onClick={() => props.setDisplay("History")}>
-                    <ClockIcon sx={{ color: isActive('History') ? '#FFFFFF' : '#BABCBE' }} />
+                    <ClockIcon sx={{ color: '#00000033' }} />
                 </IconButton>
 
                 <IconButton onClick={() => props.setDisplay("Calculator")}>
-                    <CalculatorIcon sx={{ color: isActive('Calculator') ? '#FFFFFF' : '#BABCBE' }} />
+                    <CalculatorIcon sx={{ color: '#00000033' }} />
                 </IconButton>
 
                 <IconButton onClick={() => props.setDisplay("Translate")}>
-                    <TranslateIcon sx={{ color: isActive('Translate') ? '#FFFFFF' : '#BABCBE' }} />
+                    <TranslateIcon sx={{ color: '#00000033' }} />
                 </IconButton>
 
                 <div style={{ width: '29px', borderTop: '1px solid #00000033', marginLeft: '5px', }} />
 
                 <IconButton onClick={() => props.setDisplay("Settings")}>
-                    <SettingsIcon sx={{ color: isActive('Settings') ? '#FFFFFF' : '#BABCBE' }} />
+                    <SettingsIcon sx={{ color: '#00000033' }} />
                 </IconButton>
             </ButtonGroup>
         </div>

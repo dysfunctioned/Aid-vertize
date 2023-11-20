@@ -9,6 +9,7 @@ import BottomNav from './components/dashboard/BottomNav'
 import WidgetsBarActive from './components/widgetsBar/active/WidgetsBarActive'
 import WidgetsBarInactive from './components/widgetsBar/inactive/WidgetsBarInactive'
 import Weather from './weather/Weather'
+import DefaultBackground from '../assets/DefaultBackground.png'
 import {
     QueryClient,
     QueryClientProvider,
@@ -19,7 +20,18 @@ function NewTab() {
     const [dashDisplay, setDashDisplay] = useState(null);
 
     // Determines the widgets tab (null if widgets bar is not active)
-    const [widgetsDisplay, setWidgetsDisplay] = useState(null)
+    const [widgetsDisplay, setWidgetsDisplay] = useState(null);
+
+    // Determines current background image
+    const [background, setBackground] = useState(() => {
+        const localValue = localStorage.getItem("ITEMS");
+        if (localValue == null) return DefaultBackground;
+        return JSON.parse(localValue);
+    });
+
+    useEffect(() => {
+        localStorage.setItem("ITEMS", JSON.stringify(background));
+    }, [background]);
 
     const queryClient = new QueryClient()
 
@@ -31,7 +43,7 @@ function NewTab() {
         adElement.style.height = '100px';
         adElement.style.position = 'absolute';
 
-        document.body.appendChild(adElement);
+        // document.body.appendChild(adElement);
 
         console.log('Ad element added to the body:', adElement);
 
@@ -44,7 +56,7 @@ function NewTab() {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <div className='new-tab-override'>
+            <div className='new-tab-override' style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', }}>
                 {/* Bottom navigation bar */}
                 <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />
                 {/* Dashboard */}
@@ -53,10 +65,10 @@ function NewTab() {
                     <DashNav display={dashDisplay} setDisplay={setDashDisplay} />
                     {/* Display the dashboard tab */}
                     {dashDisplay === 'Widgets' && <Widgets />}
-                    {dashDisplay === 'Backgrounds' && <Backgrounds />}
+                    {dashDisplay === 'Backgrounds' && <Backgrounds background={background} setBackground={setBackground} />}
                     {dashDisplay === 'Impact' && <Impact />}
                 </Dashboard>
-                <Weather/>
+                {/* <Weather/> */}
                 {/* Widgets bar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                     : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
