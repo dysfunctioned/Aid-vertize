@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import WidgetsNavActive from './WidgetsNavActive'
 import './WidgetsBarActive.css'
-import History from '../../../widgets/history/History'
 import WidgetsHeader from './WidgetsHeader'
+import History from 'src/newTab/widgets/history/History'
+import ChatGPT from 'src/newTab/widgets/ChatGPT'
 
 export default function WidgetsBarActive(props) {
   return (
@@ -11,6 +12,7 @@ export default function WidgetsBarActive(props) {
       <div className='widgets-bar-content'>
         <WidgetsHeader display={props.display} setDisplay={props.setDisplay} />
         {(props.display == "History") ? <History /> : <></>}
+        {(props.display == "ChatGPT") ? <ChatGPT /> : <></>}
       </div>
     </div>
   )
