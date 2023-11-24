@@ -4,6 +4,7 @@ import './WidgetsBarActive.css'
 import WidgetsHeader from './WidgetsHeader'
 import History from 'src/newTab/widgets/history/History'
 import ChatGPT from 'src/newTab/widgets/ChatGPT'
+import Translate from 'src/newTab/widgets/Translate'
 
 export default function WidgetsBarActive(props) {
   return (
@@ -13,6 +14,7 @@ export default function WidgetsBarActive(props) {
         <WidgetsHeader display={props.display} setDisplay={props.setDisplay} />
         {(props.display == "History") ? <History /> : <></>}
         {(props.display == "ChatGPT") ? <ChatGPT /> : <></>}
+        {(props.display == "Translate") ? <Translate /> : <></>}
       </div>
     </div>
   )
