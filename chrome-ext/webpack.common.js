@@ -6,6 +6,8 @@ const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 
 module.exports = {
     entry: {
@@ -71,7 +73,8 @@ module.exports = {
         ])
     ],
     resolve: {
-        extensions: ['.tsx', '.js', '.ts']
+        extensions: ['.tsx', '.js', '.ts'],
+        plugins: [new TsconfigPathsPlugin()]
     },
     output: {
         filename: '[name].js',

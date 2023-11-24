@@ -14,6 +14,7 @@ import {
     QueryClient,
     QueryClientProvider,
 } from 'react-query'
+import { Backdrop } from '@mui/material';
 
 function NewTab() {
     // Determines the dashboard tab (null if dashboard is closed)
@@ -57,6 +58,13 @@ function NewTab() {
     return (
         <QueryClientProvider client={queryClient}>
             <div className='new-tab-override' style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', }}>
+                {/* Darkened backdrop for the dashboard */}
+                <Backdrop
+                    sx={{ color: '#fff', zIndex: 2, }}
+                    open={dashDisplay != null}
+                >
+                </Backdrop>
+
                 {/* Bottom navigation bar */}
                 <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />
                 {/* Dashboard */}
@@ -68,12 +76,12 @@ function NewTab() {
                     {dashDisplay === 'Backgrounds' && <Backgrounds background={background} setBackground={setBackground} />}
                     {dashDisplay === 'Impact' && <Impact />}
                 </Dashboard>
-                {/* <Weather/> */}
+                <Weather />
                 {/* Widgets bar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                     : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
             </div>
-        </QueryClientProvider>
+        </QueryClientProvider >
     )
 }
 
