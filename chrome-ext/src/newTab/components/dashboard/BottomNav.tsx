@@ -14,6 +14,7 @@ export default function BottomNav(props) {
       borderRadius: '10px', opacity: 0.8,
       position: 'absolute', bottom: '13px',
       backgroundColor: (props.display == null) ? 'rgba(217, 217, 217, 0.40)' : '#FFF',
+      zIndex: 999,
     }}>
       <ButtonGroup sx={{ flex: 1 }}>
 
