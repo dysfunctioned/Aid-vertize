@@ -68,7 +68,7 @@ function NewTab() {
                     {dashDisplay === 'Backgrounds' && <Backgrounds background={background} setBackground={setBackground} />}
                     {dashDisplay === 'Impact' && <Impact />}
                 </Dashboard>
-                {/* <Weather/> */}
+                <Weather/>
                 {/* Widgets bar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                     : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
