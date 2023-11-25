@@ -7,7 +7,7 @@
 - Within the ```chrome-ext``` directory, generate the ```dist``` directory by running ```npm run build``` in the terminal
 - When any changes are made to code within the repository, run ```git pull``` to update your local files, then ```npm run build``` to regenerate the ```dist``` directory
 
-### Loading the extension onto Chrome
+### Loading the extension onto Chrome:
 - To load the extension onto Chrome, type ```chrome://extensions/``` in the address bar
 - Click the 'Load unpacked' button and select the ```chrome-ext/dist``` directory within the repository
 
