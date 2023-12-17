@@ -6,13 +6,8 @@ import DefaultBackground from '../../../../assets/DefaultBackground.png'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 export default function Backgrounds(props) {
-  const backgrounds = [
-    'https://images.squarespace-cdn.com/content/v1/5dd9e841aaf3a2671e79cacb/1575251382233-0HV2GI056VREW9S0G37K/%E5%A4%A7%E8%BF%9E%E5%B0%BF%E7%85%A73.jpg?format=1500w',
-    'https://images.squarespace-cdn.com/content/v1/5dd9e841aaf3a2671e79cacb/1647267752269-DON5UU8RIV5P4YRT35Q9/Seceda+Houses-compressed.jpg?format=1000w',
-    'https://images.squarespace-cdn.com/content/v1/5dd9e841aaf3a2671e79cacb/1574564008106-2OQHDEFZ8PMXRZHO9TDI/Golden+Gate+3.jpg?format=1000w',
-    'https://images.squarespace-cdn.com/content/v1/5dd9e841aaf3a2671e79cacb/1597945538227-HUE3YEW74MLZ87LDXK50/Milky+Way+4.png?format=1000w',
-    'https://images.squarespace-cdn.com/content/v1/5dd9e841aaf3a2671e79cacb/1581105122269-RBYTQYXD7LSVDANR1ANY/AA6B7A9C-D8B0-4E1B-B5EF-FBC19412C5D3.jpeg?format=1000w'
-  ];
+  const driveLink = "https://drive.google.com/uc?id=";
+  const imageIDs = ["1ahnxS3s3vmFKTC2D89TGxXv9HHPQOBw1", "1CX570Z5PCgjOX3KUabgSVVpwWDHiRAif", "1JdtY5FU5mPXpT85M0M40hIvLekznNzmJ", "1p5qRFvcNJpmua10hobYmNSPOg8LLnQev", "1IWZGnbAc6JyUpQGF-tXwcIwtp9lBHmiH"];
 
   const [uploadedBackground, setUploadedBackground] = useState(() => {
     const storedBackground = localStorage.getItem('uploadedBackground');
@@ -101,60 +96,60 @@ export default function Backgrounds(props) {
         <div className='backgrounds-header'>GALLERY</div>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '15px', }}>
 
-          <Button onClick={() => { props.setBackground(backgrounds[0]) }}>
+          <Button onClick={() => { props.setBackground(driveLink + imageIDs[0]) }}>
             <img
-              src={backgrounds[0]}
+              src={driveLink + imageIDs[0]}
               style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
             />
-            {props.background == backgrounds[0] && (
+            {props.background == driveLink + imageIDs[0] && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(backgrounds[1]) }}>
+          <Button onClick={() => { props.setBackground(driveLink + imageIDs[1]) }}>
             <img
-              src={backgrounds[1]}
+              src={driveLink + imageIDs[1]}
               style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
             />
-            {props.background == backgrounds[1] && (
+            {props.background == driveLink + imageIDs[1] && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(backgrounds[2]) }}>
+          <Button onClick={() => { props.setBackground(driveLink + imageIDs[2]) }}>
             <img
-              src={backgrounds[2]}
+              src={driveLink + imageIDs[2]}
               style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
             />
-            {props.background == backgrounds[2] && (
+            {props.background == driveLink + imageIDs[2] && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(backgrounds[3]) }}>
+          <Button onClick={() => { props.setBackground(driveLink + imageIDs[3]) }}>
             <img
-              src={backgrounds[3]}
+              src={driveLink + imageIDs[3]}
               style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
             />
-            {props.background == backgrounds[3] && (
+            {props.background == driveLink + imageIDs[3] && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(backgrounds[4]) }}>
+          <Button onClick={() => { props.setBackground(driveLink + imageIDs[4]) }}>
             <img
-              src={backgrounds[4]}
+              src={driveLink + imageIDs[4]}
               style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
             />
-            {props.background == backgrounds[4] && (
+            {props.background == driveLink + imageIDs[4] && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />

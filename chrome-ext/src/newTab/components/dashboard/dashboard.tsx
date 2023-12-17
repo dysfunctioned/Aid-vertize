@@ -4,12 +4,22 @@ import { Grow, Paper } from '@mui/material';
 
 function Dashboard(props) {
     return props.display != null ? (
-        <Grow in={props.display != null} className='box'>
+        <Grow in={props.display != null}>
             <Paper
                 elevation={4}
                 style={{
-                    zIndex: 3, // Higher zIndex to appear above the Backdrop
-                    display: props.display != null ? 'block' : 'none',
+                    zIndex: 999,
+                    display: props.display != null ? 'flex' : 'none',
+                    flexDirection: 'column',
+
+                    width: '65%',
+                    height: '75%',
+                    minWidth: '633px',
+                    minHeight: '486px',
+                    flexShrink: 0,
+                    backgroundColor: '#F1F3F4',
+                    borderRadius: '10px',
+                    position: 'fixed',
                 }}
             >
                 {props.children}
