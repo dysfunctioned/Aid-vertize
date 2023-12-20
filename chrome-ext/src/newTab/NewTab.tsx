@@ -17,10 +17,10 @@ import {
 import { Backdrop } from '@mui/material';
 
 function NewTab() {
-    // Determines the dashboard tab (null if dashboard is closed)
+    // Determines the current dashboard tab (null if dashboard is closed)
     const [dashDisplay, setDashDisplay] = useState(null);
 
-    // Determines the widgets tab (null if widgets bar is not active)
+    // Determines the current sidebar tab (null if widgets bar is not active)
     const [widgetsDisplay, setWidgetsDisplay] = useState(null);
 
     // Determines current background image
@@ -29,31 +29,21 @@ function NewTab() {
         if (localValue == null) return DefaultBackground;
         return JSON.parse(localValue);
     });
-
     useEffect(() => {
         localStorage.setItem("ITEMS", JSON.stringify(background));
     }, [background]);
 
+    // Determines state of widgets
+    const initialState = JSON.parse(localStorage.getItem('switchValues')) || {
+        timeDate: true,
+        search: true,
+        weather: true,
+        mostVisited: true,
+        recentlyClosed: true,
+    };
+    const [switchValues, setSwitchValues] = useState(initialState);
+
     const queryClient = new QueryClient()
-
-    useEffect(() => {
-        const adElement = document.createElement('div');
-        adElement.className = 'adsbygoogle ad ads adsbox ad-placement ad-placeholder ad-badge';
-
-        adElement.style.width = '100px';
-        adElement.style.height = '100px';
-        adElement.style.position = 'absolute';
-
-        // document.body.appendChild(adElement);
-
-        console.log('Ad element added to the body:', adElement);
-
-        if (window.getComputedStyle(adElement).display === 'none') {
-            console.log('Adblock is enabled');
-        } else {
-            console.log('Adblock is not enabled');
-        }
-    }, []);
 
     return (
         <QueryClientProvider client={queryClient}>
@@ -72,11 +62,14 @@ function NewTab() {
                     {/* Dashboard navigation bar */}
                     <DashNav display={dashDisplay} setDisplay={setDashDisplay} />
                     {/* Display the dashboard tab */}
-                    {dashDisplay === 'Widgets' && <Widgets />}
+                    {dashDisplay === 'Widgets' && <Widgets switchValues={switchValues} setSwitchValues={setSwitchValues} />}
                     {dashDisplay === 'Backgrounds' && <Backgrounds background={background} setBackground={setBackground} />}
                     {dashDisplay === 'Impact' && <Impact />}
                 </Dashboard>
-                <Weather />
+
+                {/* Widgets */}
+                {switchValues.weather && <Weather />}
+
                 {/* Widgets bar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                     : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
