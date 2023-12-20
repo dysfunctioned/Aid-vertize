@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './dashboard.css'
 import { Grow, Paper } from '@mui/material';
 
 function Dashboard(props) {
+    useEffect(() => {
+        const handleEscKey = (event) => {
+            if (event.key === 'Escape') {
+                props.setDisplay(null);
+            }
+        };
+        document.addEventListener('keydown', handleEscKey);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            document.removeEventListener('keydown', handleEscKey);
+        };
+    }, [props.setDisplay]);
+
     return props.display != null ? (
         <Grow in={props.display != null}>
             <Paper

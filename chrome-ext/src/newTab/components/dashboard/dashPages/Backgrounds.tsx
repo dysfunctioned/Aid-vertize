@@ -2,13 +2,18 @@ import React, { useRef, useState } from 'react'
 import { Button } from '@mui/material'
 import './Backgrounds.css'
 import UploadIcon from '@mui/icons-material/UploadRounded';
-import DefaultBackground from '../../../../assets/DefaultBackground.png'
+import DefaultBackground from 'src/assets/DefaultBackground.png'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
-export default function Backgrounds(props) {
-  const driveLink = "https://drive.google.com/uc?id=";
-  const imageIDs = ["1ahnxS3s3vmFKTC2D89TGxXv9HHPQOBw1", "1CX570Z5PCgjOX3KUabgSVVpwWDHiRAif", "1JdtY5FU5mPXpT85M0M40hIvLekznNzmJ", "1p5qRFvcNJpmua10hobYmNSPOg8LLnQev", "1IWZGnbAc6JyUpQGF-tXwcIwtp9lBHmiH"];
+import Bg1 from 'src/assets/Background1.png';
+import Bg2 from 'src/assets/Background2.png';
+import Bg3 from 'src/assets/Background3.png';
+import Bg4 from 'src/assets/Background4.png';
+import Bg5 from 'src/assets/Background5.png';
 
+
+export default function Backgrounds(props) {
+  // Handle backgrounds uploading
   const [uploadedBackground, setUploadedBackground] = useState(() => {
     const storedBackground = localStorage.getItem('uploadedBackground');
     return storedBackground ? `data:image/png;base64,${storedBackground}` : null;
@@ -17,7 +22,6 @@ export default function Backgrounds(props) {
   const fileInputRef = useRef(null);
 
   const handleUploadClick = () => {
-    // Trigger click on the hidden file input when the div is clicked
     fileInputRef.current.click();
   };
 
@@ -36,11 +40,10 @@ export default function Backgrounds(props) {
   };
 
   return (
-    <>
-      <div className='backgrounds-p1'>
-
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <div className='backgrounds-p1' style={{ display: 'flex', flexDirection: 'column', }}>
         <div className='backgrounds-header'>YOUR BACKGROUNDS</div>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '15px', }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
 
           <Button onClick={handleUploadClick}>
             <div style={{
@@ -67,7 +70,7 @@ export default function Backgrounds(props) {
           <Button onClick={() => { props.setBackground(DefaultBackground) }}>
             <img
               src={DefaultBackground}
-              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
+              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }}
             />
             {props.background == DefaultBackground && (
               <CheckCircleRoundedIcon
@@ -92,64 +95,49 @@ export default function Backgrounds(props) {
         </div>
       </div >
 
-      <div className='backgrounds-p2'>
+      <div className='backgrounds-p2' style={{ display: 'flex', flexDirection: 'column' }}>
         <div className='backgrounds-header'>GALLERY</div>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '15px', }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
 
-          <Button onClick={() => { props.setBackground(driveLink + imageIDs[0]) }}>
-            <img
-              src={driveLink + imageIDs[0]}
-              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
-            />
-            {props.background == driveLink + imageIDs[0] && (
+          <Button onClick={() => { props.setBackground(Bg1) }}>
+            <img src={Bg1} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            {props.background == Bg1 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(driveLink + imageIDs[1]) }}>
-            <img
-              src={driveLink + imageIDs[1]}
-              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
-            />
-            {props.background == driveLink + imageIDs[1] && (
+          <Button onClick={() => { props.setBackground(Bg2) }}>
+            <img src={Bg2} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            {props.background == Bg2 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(driveLink + imageIDs[2]) }}>
-            <img
-              src={driveLink + imageIDs[2]}
-              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
-            />
-            {props.background == driveLink + imageIDs[2] && (
+          <Button onClick={() => { props.setBackground(Bg3) }}>
+            <img src={Bg3} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            {props.background == Bg3 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(driveLink + imageIDs[3]) }}>
-            <img
-              src={driveLink + imageIDs[3]}
-              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
-            />
-            {props.background == driveLink + imageIDs[3] && (
+          <Button onClick={() => { props.setBackground(Bg4) }}>
+            <img src={Bg4} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            {props.background == Bg4 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
             )}
           </Button>
 
-          <Button onClick={() => { props.setBackground(driveLink + imageIDs[4]) }}>
-            <img
-              src={driveLink + imageIDs[4]}
-              style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer' }}
-            />
-            {props.background == driveLink + imageIDs[4] && (
+          <Button onClick={() => { props.setBackground(Bg5) }} >
+            <img src={Bg5} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            {props.background == Bg5 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
               />
@@ -157,6 +145,6 @@ export default function Backgrounds(props) {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   )
 }
