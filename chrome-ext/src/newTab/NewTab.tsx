@@ -9,6 +9,8 @@ import BottomNav from './components/dashboard/BottomNav'
 import WidgetsBarActive from './components/widgetsBar/active/WidgetsBarActive'
 import WidgetsBarInactive from './components/widgetsBar/inactive/WidgetsBarInactive'
 import Weather from './weather/Weather'
+import DateTime from './widgets/DateTime'
+import SearchBar from './widgets/SearchBar'
 import DefaultBackground from '../assets/DefaultBackground.png'
 import {
     QueryClient,
@@ -47,7 +49,7 @@ function NewTab() {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <div className='new-tab-override' style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', }}>
+            <div className='new-tab-override' style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', display: 'flex', flexDirection: 'column' }}>
                 {/* Darkened backdrop for the dashboard */}
                 <Backdrop
                     sx={{ color: '#fff', zIndex: 2, }}
@@ -68,9 +70,11 @@ function NewTab() {
                 </Dashboard>
 
                 {/* Widgets */}
+                {switchValues.timeDate && <DateTime />}
+                {switchValues.search && <SearchBar />}
                 {switchValues.weather && <Weather />}
 
-                {/* Widgets bar: set to active if widgetsDisplay is not null */}
+                {/* Sidebar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
                     : <WidgetsBarActive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />}
             </div>
