@@ -15,11 +15,20 @@ export default function RecentlyClosed() {
 
     useEffect(() => {
         chrome.sessions.getRecentlyClosed({ maxResults: 25 }, function (sessions) {
-            const filteredDomains = sessions
-                .filter(session => !session.tab.url.startsWith('chrome') && !session.tab.url.startsWith('file'))
-                .map(session => session.tab);
-
-            setRecentlyClosedTabs(Array.from(new Set(filteredDomains)));
+            let domains = []
+            for (let session of sessions) {
+                if (session.tab && !session.tab.url.startsWith('chrome') && !session.tab.url.startsWith('file')) {
+                    domains.push(session.tab)
+                }
+                else if (session.window && session.window.tabs) {
+                    for (let tab of session.window.tabs) {
+                        if (tab && !tab.url.startsWith('chrome') && !tab.url.startsWith('file')) {
+                            domains.push(tab)
+                        }
+                    }
+                }
+            }
+            setRecentlyClosedTabs(Array.from(new Set(domains)));
         });
     }, []);
 
