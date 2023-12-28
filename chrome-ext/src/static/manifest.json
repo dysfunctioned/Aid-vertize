@@ -16,7 +16,9 @@
         "bookmarks",
         "storage",
         "identity",
-        "history"
+        "history",
+        "sessions",
+        "topSites"
     ],
     "icons": {
         "16" : "icon.png",

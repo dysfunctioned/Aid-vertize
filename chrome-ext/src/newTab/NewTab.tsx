@@ -11,6 +11,8 @@ import WidgetsBarInactive from './components/widgetsBar/inactive/WidgetsBarInact
 import Weather from './weather/Weather'
 import DateTime from './widgets/DateTime'
 import SearchBar from './widgets/SearchBar'
+import MostVisited from './widgets/MostVisited'
+import RecentlyClosed from './widgets/RecentlyClosed'
 import DefaultBackground from '../assets/DefaultBackground.png'
 import {
     QueryClient,
@@ -51,11 +53,7 @@ function NewTab() {
         <QueryClientProvider client={queryClient}>
             <div className='new-tab-override' style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', display: 'flex', flexDirection: 'column' }}>
                 {/* Darkened backdrop for the dashboard */}
-                <Backdrop
-                    sx={{ color: '#fff', zIndex: 2, }}
-                    open={dashDisplay != null}
-                >
-                </Backdrop>
+                <Backdrop sx={{ color: '#fff', zIndex: 2, }} open={dashDisplay != null} />
 
                 {/* Bottom navigation bar */}
                 <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />
@@ -73,6 +71,8 @@ function NewTab() {
                 {switchValues.timeDate && <DateTime />}
                 {switchValues.search && <SearchBar />}
                 {switchValues.weather && <Weather />}
+                {switchValues.mostVisited && <MostVisited />}
+                {switchValues.recentlyClosed && <RecentlyClosed />}
 
                 {/* Sidebar: set to active if widgetsDisplay is not null */}
                 {(widgetsDisplay == null) ? <WidgetsBarInactive display={widgetsDisplay} setDisplay={setWidgetsDisplay} />
