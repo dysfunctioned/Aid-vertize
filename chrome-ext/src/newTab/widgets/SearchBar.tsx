@@ -8,7 +8,16 @@ export default function SearchBar() {
 
     const handleSearch = (event) => {
         event.preventDefault();
-        window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        const regex = /^(https?:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i;
+
+        if (regex.test(searchTerm)) {
+            if (!searchTerm.startsWith('https') && !searchTerm.startsWith('http')) {
+                window.location.href = new URL('https://' + searchTerm).href;
+            }
+            window.location.href = new URL(searchTerm).href;
+        } else {
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
+        }
     };
 
     return (
