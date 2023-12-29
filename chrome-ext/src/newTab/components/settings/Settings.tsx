@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import './dashboard.css'
 import { Grow, Paper } from '@mui/material';
 
-function Dashboard(props) {
+function Settings(props) {
     useEffect(() => {
         const handleEscKey = (event) => {
             if (event.key === 'Escape') {
@@ -42,4 +41,4 @@ function Dashboard(props) {
     ) : <></>;
 }
 
-export default Dashboard
+export default Settings

@@ -9,12 +9,12 @@ import Translate from 'src/newTab/widgets/Translate'
 export default function WidgetsBarActive(props) {
   return (
     <div className='widgets-box' style={{ transition: 'width 2s' }}>
-      <WidgetsNavActive display={props.display} setDisplay={props.setDisplay} />
+      <WidgetsNavActive widgetsDisplay={props.widgetsDisplay} setWidgetsDisplay={props.setWidgetsDisplay} settingsDisplay={props.settingsDisplay} setSettingsDisplay={props.setSettingsDisplay} />
       <div className='widgets-bar-content'>
-        <WidgetsHeader display={props.display} setDisplay={props.setDisplay} />
-        {(props.display == "History") ? <History /> : <></>}
-        {(props.display == "ChatGPT") ? <ChatGPT /> : <></>}
-        {(props.display == "Translate") ? <Translate /> : <></>}
+        <WidgetsHeader widgetsDisplay={props.widgetsDisplay} setWidgetsDisplay={props.setWidgetsDisplay} settingsDisplay={props.settingsDisplay} setSettingsDisplay={props.setSettingsDisplay} />
+        {(props.widgetsDisplay == "History") ? <History /> : <></>}
+        {(props.widgetsDisplay == "ChatGPT") ? <ChatGPT /> : <></>}
+        {(props.widgetsDisplay == "Translate") ? <Translate /> : <></>}
       </div>
     </div>
   )
