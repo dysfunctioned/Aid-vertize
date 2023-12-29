@@ -20,8 +20,8 @@ export default function MostVisited() {
     }, []);
 
     let iconButtons = []
-    if (mostVisitedWebsites.length > 0) {
-        for (let i = 0; i < 5; i++) {
+    if (mostVisitedWebsites && mostVisitedWebsites.length > 0) {
+        for (let i = 0; i < Math.min(5, mostVisitedWebsites.length); i++) {
             let url = mostVisitedWebsites[i]
             iconButtons.push(
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '110px', marginLeft: '2px', marginRight: '2px', }}>

@@ -53,7 +53,7 @@ function NewTab() {
         <QueryClientProvider client={queryClient}>
             <div className='new-tab-override' style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', display: 'flex', flexDirection: 'column' }}>
                 {/* Darkened backdrop for the dashboard */}
-                <Backdrop sx={{ color: '#fff', zIndex: 2, }} open={dashDisplay != null} />
+                <Backdrop sx={{ color: '#fff', zIndex: 2, }} open={dashDisplay != null} onClick={() => { setDashDisplay(null) }} />
 
                 {/* Bottom navigation bar */}
                 <BottomNav display={dashDisplay} setDisplay={setDashDisplay} />

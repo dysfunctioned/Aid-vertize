@@ -33,8 +33,8 @@ export default function RecentlyClosed() {
     }, []);
 
     const iconButtons = [];
-    if (recentlyClosedTabs.length > 0) {
-        for (let i = 0; i < 5; i++) {
+    if (recentlyClosedTabs && recentlyClosedTabs.length > 0) {
+        for (let i = 0; i < Math.min(5, recentlyClosedTabs.length); i++) {
             let tab = recentlyClosedTabs[i]
             iconButtons.push(
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '110px', marginLeft: '2px', marginRight: '2px', }}>
