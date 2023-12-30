@@ -10,14 +10,14 @@ import TranslateIcon from '@mui/icons-material/TranslateOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 export default function WidgetsNavActive(props) {
-  const isActive = (widget) => props.display === widget;
+  const isActive = (widget) => props.widgetsDisplay === widget;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', boxShadow: '0.5px 0px 0px 0px #C4C4C4', }}>
       <ButtonGroup orientation='vertical' sx={{ flex: 1 }}>
 
         <IconButton
-          onClick={() => props.setDisplay("Calendar")}
+          onClick={() => props.setWidgetsDisplay("Calendar")}
           sx={{
             backgroundColor: isActive('Calendar') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('Calendar') ? '#606367' : '' },
@@ -26,7 +26,7 @@ export default function WidgetsNavActive(props) {
         </IconButton>
 
         <IconButton
-          onClick={() => props.setDisplay("Tasks")}
+          onClick={() => props.setWidgetsDisplay("Tasks")}
           sx={{
             backgroundColor: isActive('Tasks') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('Tasks') ? '#606367' : '' },
@@ -35,7 +35,7 @@ export default function WidgetsNavActive(props) {
         </IconButton>
 
         <IconButton
-          onClick={() => props.setDisplay("Notes")}
+          onClick={() => props.setWidgetsDisplay("Notes")}
           sx={{
             backgroundColor: isActive('Notes') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('Notes') ? '#606367' : '' },
@@ -44,7 +44,7 @@ export default function WidgetsNavActive(props) {
         </IconButton>
 
         <IconButton
-          onClick={() => props.setDisplay("History")}
+          onClick={() => props.setWidgetsDisplay("History")}
           sx={{
             backgroundColor: isActive('History') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('History') ? '#606367' : '' },
@@ -53,7 +53,7 @@ export default function WidgetsNavActive(props) {
         </IconButton>
 
         <IconButton
-          onClick={() => props.setDisplay("Calculator")}
+          onClick={() => props.setWidgetsDisplay("Calculator")}
           sx={{
             backgroundColor: isActive('Calculator') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('Calculator') ? '#606367' : '' },
@@ -62,7 +62,7 @@ export default function WidgetsNavActive(props) {
         </IconButton>
 
         <IconButton
-          onClick={() => props.setDisplay("Translate")}
+          onClick={() => props.setWidgetsDisplay("Translate")}
           sx={{
             backgroundColor: isActive('Translate') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('Translate') ? '#606367' : '' },
@@ -71,7 +71,7 @@ export default function WidgetsNavActive(props) {
         </IconButton>
 
         <IconButton
-          onClick={() => props.setDisplay("ChatGPT")}
+          onClick={() => props.setWidgetsDisplay("ChatGPT")}
           sx={{
             backgroundColor: isActive('ChatGPT') ? '#606367' : 'inherit',
             '&:hover': { backgroundColor: isActive('ChatGPT') ? '#606367' : '' },
@@ -89,7 +89,7 @@ export default function WidgetsNavActive(props) {
       </ButtonGroup>
 
       <IconButton
-        onClick={() => props.setDisplay("Settings")}
+        onClick={() => props.setSettingsDisplay("General")}
         sx={{
           backgroundColor: isActive('Settings') ? '#606367' : 'inherit',
           '&:hover': { backgroundColor: isActive('Settings') ? '#606367' : '' },
