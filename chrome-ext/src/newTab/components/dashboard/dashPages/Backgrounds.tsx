@@ -1,22 +1,23 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, } from 'react'
 import { Button } from '@mui/material'
 import './Backgrounds.css'
 import UploadIcon from '@mui/icons-material/UploadRounded';
-import DefaultBackground from 'src/assets/DefaultBackground.png'
+import DefaultBackground from 'src/assets/DefaultBackground.webp'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import Bg1 from 'src/assets/Background1.png';
-import Bg2 from 'src/assets/Background2.png';
-import Bg3 from 'src/assets/Background3.png';
-import Bg4 from 'src/assets/Background4.png';
-import Bg5 from 'src/assets/Background5.png';
+import Bg1 from 'src/assets/Background1.webp';
+import Bg2 from 'src/assets/Background2.webp';
+import Bg3 from 'src/assets/Background3.webp';
+import Bg4 from 'src/assets/Background4.webp';
+import Bg5 from 'src/assets/Background5.webp';
 
 
 export default function Backgrounds(props) {
   // Handle backgrounds uploading
   const [uploadedBackground, setUploadedBackground] = useState(() => {
     const storedBackground = localStorage.getItem('uploadedBackground');
-    return storedBackground ? `data:image/png;base64,${storedBackground}` : null;
+    return storedBackground ? `data:image/webp;base64,${storedBackground}` : null;
   });
 
   const fileInputRef = useRef(null);
@@ -32,7 +33,7 @@ export default function Backgrounds(props) {
       const reader = new FileReader();
       reader.onload = () => {
         const base64String = typeof reader.result === 'string' ? reader.result.split(',')[1] : new TextDecoder().decode(reader.result);
-        setUploadedBackground(`data:image/png;base64,${base64String}`);
+        setUploadedBackground(`data:image/webp;base64,${base64String}`);
         localStorage.setItem('uploadedBackground', base64String);
       };
       reader.readAsDataURL(selectedFile);
@@ -68,7 +69,7 @@ export default function Backgrounds(props) {
           </Button>
 
           <Button onClick={() => { props.setBackground(DefaultBackground) }}>
-            <img
+            <LazyLoadImage
               src={DefaultBackground}
               style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }}
             />
@@ -81,7 +82,7 @@ export default function Backgrounds(props) {
 
           {uploadedBackground && (
             <Button onClick={() => { props.setBackground(uploadedBackground) }}>
-              <img
+              <LazyLoadImage
                 src={uploadedBackground}
                 style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', }}
               />
@@ -100,7 +101,7 @@ export default function Backgrounds(props) {
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
 
           <Button onClick={() => { props.setBackground(Bg1) }}>
-            <img src={Bg1} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            <LazyLoadImage src={Bg1} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
             {props.background == Bg1 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
@@ -109,7 +110,7 @@ export default function Backgrounds(props) {
           </Button>
 
           <Button onClick={() => { props.setBackground(Bg2) }}>
-            <img src={Bg2} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            <LazyLoadImage src={Bg2} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
             {props.background == Bg2 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
@@ -118,7 +119,7 @@ export default function Backgrounds(props) {
           </Button>
 
           <Button onClick={() => { props.setBackground(Bg3) }}>
-            <img src={Bg3} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            <LazyLoadImage src={Bg3} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
             {props.background == Bg3 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
@@ -127,7 +128,7 @@ export default function Backgrounds(props) {
           </Button>
 
           <Button onClick={() => { props.setBackground(Bg4) }}>
-            <img src={Bg4} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            <LazyLoadImage src={Bg4} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
             {props.background == Bg4 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}
@@ -136,7 +137,7 @@ export default function Backgrounds(props) {
           </Button>
 
           <Button onClick={() => { props.setBackground(Bg5) }} >
-            <img src={Bg5} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
+            <LazyLoadImage src={Bg5} style={{ width: '160px', height: '120px', flexShrink: '0', borderRadius: '5px', cursor: 'pointer', objectFit: 'cover', objectPosition: 'center' }} loading='lazy' />
             {props.background == Bg5 && (
               <CheckCircleRoundedIcon
                 style={{ width: '18px', height: '18px', position: 'absolute', top: '-5px', right: '-5px', color: '#772CE8', zIndex: 1, }}

@@ -26,7 +26,7 @@ import DateTime from './widgets/DateTime'
 import SearchBar from './widgets/SearchBar'
 import MostVisited from './widgets/MostVisited'
 import RecentlyClosed from './widgets/RecentlyClosed'
-import DefaultBackground from '../assets/DefaultBackground.png'
+import DefaultBackground from '../assets/DefaultBackground.webp'
 
 // Misc.
 import {
