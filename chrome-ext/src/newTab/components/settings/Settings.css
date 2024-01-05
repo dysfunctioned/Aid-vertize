@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../../assets/Inter-Regular.woff2') format('woff2');
+}
+
+.box {
+    width: 65%;
+    height: 75%;
+    min-width: 633px;
+    min-height: 486px;
+    flex-shrink: 0;
+    background-color: #F1F3F4;
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+    position: fixed;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    border-radius: 10px 10px 0px 0px;
+    background: #FFF;
+    box-shadow: 0px 1px 0px 0px rgba(188, 188, 188, 0.25);
+    display: flex;
+}
+
+.settingsboard-text {
+    color: rgba(119, 44, 232, 1);
+    font-size: 30px;
+    font-family: 'Inter';
+    font-weight: 600;
+    word-wrap: 'break-word';
+    padding-right: 50px;
+}
+
+.buttons {
+    list-style: none;
+    display: flex;
+}
+
+.button-text {
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    word-wrap: 'break-word';
+    margin-right: 30px;
+    color: #BABCBE;
+    padding: 14px;
+}
+
+li.button-text:hover {
+    cursor: pointer;
+    background-color: #f8f8f8;
+}
+
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
