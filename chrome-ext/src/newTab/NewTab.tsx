@@ -104,8 +104,8 @@ function NewTab() {
                 {switchValues.recentlyClosed && <RecentlyClosed />}
 
                 {/* Sidebar: set to active if widgetsDisplay is not null */}
-                <WidgetsBarInactive widgetsDisplay={widgetsDisplay} setWidgetsDisplay={setWidgetsDisplay} />
-                <WidgetsBarActive widgetsDisplay={widgetsDisplay} setWidgetsDisplay={setWidgetsDisplay} />
+                <WidgetsBarInactive widgetsDisplay={widgetsDisplay} setWidgetsDisplay={setWidgetsDisplay} settingsDisplay={settingsDisplay} setSettingsDisplay={setSettingsDisplay} />
+                <WidgetsBarActive widgetsDisplay={widgetsDisplay} setWidgetsDisplay={setWidgetsDisplay} settingsDisplay={settingsDisplay} setSettingsDisplay={setSettingsDisplay} />
             </div>
         </QueryClientProvider >
     )

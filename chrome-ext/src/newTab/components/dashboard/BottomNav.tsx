@@ -1,7 +1,7 @@
 import React from 'react'
-import WidgetsIcon from 'src/assets/WidgetsIcon.svg';
-import BackgroundsIcon from 'src/assets/BackgroundsIcon.svg';
-import ImpactIcon from 'src/assets/ImpactIcon.svg';
+import WidgetsIcon from 'src/assets/icons/WidgetsIcon.svg';
+import BackgroundsIcon from 'src/assets/icons/BackgroundsIcon.svg';
+import ImpactIcon from 'src/assets/icons/ImpactIcon.svg';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 

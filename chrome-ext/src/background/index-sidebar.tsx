@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
+import './sidebar.css';
 
 import WidgetsBarInactive from 'src/newTab/components/widgetsBar/inactive/WidgetsBarInactive';
 import WidgetsBarActive from 'src/newTab/components/widgetsBar/active/WidgetsBarActive';
@@ -32,4 +33,13 @@ function Sidebar() {
     );
 }
 
-render(<Sidebar />, document.querySelector('#sidebar'));
+
+const reactContainer = document.getElementById('aid-vertise-sidebar');
+const shadowRoot = reactContainer.attachShadow({ mode: 'open' });
+
+render(<Sidebar />, shadowRoot);
+
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = reactContainer.className + 'sidebar.css';
+shadowRoot.appendChild(link);

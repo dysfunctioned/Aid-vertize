@@ -69,6 +69,10 @@ module.exports = {
                 from: path.resolve('src/static'),
                 to: path.resolve('dist')
             },
+            {
+                from: path.resolve('src/background/sidebar.css'),
+                to: path.resolve('dist')
+            },
             ]
         }),
         ...getHtmlPlugins([
